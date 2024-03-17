@@ -8,7 +8,6 @@
 <script>
 import ListMemes from "@/components/ListMemes.vue";
 import ButtonMemes from "@/components/ButtonMemes.vue";
-import {URL_MEMES} from "@/constant/UrlMeme";
 import axios from "axios";
 
 export default {
@@ -19,13 +18,17 @@ export default {
   data() {
     return {
       memes: [],
-      URL_MEMES
+      urlMemes: ''
     }
+  },
+  mounted() {
+    console.log(process.env);
+    this.urlMemes = process.env.VUE_APP_LIST_MEMES
   },
   methods: {
     onTermChange() {
       axios
-          .get(URL_MEMES.LIST_MEMES)
+          .get(this.urlMemes)
           .then(res => {
             this.memes = res.data
           })
