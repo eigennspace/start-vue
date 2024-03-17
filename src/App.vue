@@ -1,19 +1,34 @@
 <template>
-  <div>
-    <SearchBar @termChange="onTermChange"></SearchBar>
+  <div  class="container my-3">
+    <ButtonMemes @termChange="onTermChange"></ButtonMemes>
+    <ListMemes :memes="memes"></ListMemes>
   </div>
 </template>
 
 <script>
-import SearchBar from "@/components/SearchBar.vue";
+import ListMemes from "@/components/ListMemes.vue";
+import ButtonMemes from "@/components/ButtonMemes.vue";
+import {URL_MEMES} from "@/constant/UrlMeme";
+import axios from "axios";
+
 export default {
   name: 'App',
   components: {
-    SearchBar
+    ButtonMemes, ListMemes
+  },
+  data() {
+    return {
+      memes: [],
+      URL_MEMES
+    }
   },
   methods: {
-    onTermChange(event) {
-      console.log(event)
+    onTermChange() {
+      axios
+          .get(URL_MEMES.LIST_MEMES)
+          .then(res => {
+            this.memes = res.data
+          })
     }
   }
 };

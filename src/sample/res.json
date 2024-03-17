@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "meme": "Memes0",
+    "likes": 8
+  },
+  {
+    "id": 2,
+    "meme": "Memes1",
+    "likes": 16
+  },
+  {
+    "id": 3,
+    "meme": "Memes2",
+    "likes": 24
+  },
+  {
+    "id": 4,
+    "meme": "Memes3",
+    "likes": 32
+  },
+  {
+    "id": 5,
+    "meme": "Memes4",
+    "likes": 40
+  }
+]
